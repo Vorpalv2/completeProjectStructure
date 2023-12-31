@@ -6,4 +6,12 @@ const authenticationCheck = (req, res, next) => {
   }
 };
 
-export { authenticationCheck };
+const unauthenticationCheck = (req, res, next) => {
+  if (req.isUnauthenticated()) {
+    next();
+  } else {
+    res.redirect(`/`);
+  }
+};
+
+export { authenticationCheck, unauthenticationCheck };

@@ -1,7 +1,10 @@
 import express from "express";
 import passport from "passport";
 import users from "../model/users.model.js";
-import { authenticationCheck } from "../middleware/auth.middleware.js";
+import {
+  authenticationCheck,
+  unauthenticationCheck,
+} from "../middleware/auth.middleware.js";
 
 const mainRoutes = express.Router();
 
@@ -9,11 +12,11 @@ mainRoutes.get(`/`, (req, res) => {
   res.render("homepage");
 });
 
-mainRoutes.get(`/login`, (req, res) => {
+mainRoutes.get(`/login`, unauthenticationCheck, (req, res) => {
   res.render("login");
 });
 
-mainRoutes.get(`/register`, (req, res) => {
+mainRoutes.get(`/register`, unauthenticationCheck, (req, res) => {
   res.render("register");
 });
 
