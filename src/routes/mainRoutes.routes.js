@@ -17,7 +17,7 @@ mainRoutes.get(`/register`, (req, res) => {
   res.render("register");
 });
 
-mainRoutes.get(`/aboutus`, (req, res) => {
+mainRoutes.get(`/aboutus`, authenticationCheck, (req, res) => {
   res.render("about");
 });
 
