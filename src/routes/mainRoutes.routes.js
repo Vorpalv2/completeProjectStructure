@@ -18,7 +18,7 @@ mainRoutes.get(`/register`, (req, res) => {
 });
 
 mainRoutes.get(`/aboutus`, (req, res) => {
-  res.json({ message: "still working on it" });
+  res.render("about");
 });
 
 mainRoutes.get(`/secrets`, authenticationCheck, (req, res) => {
