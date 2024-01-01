@@ -16,6 +16,10 @@ mainRoutes.get(`/login`, unauthenticationCheck, (req, res) => {
   res.render("login", { isLoggedIn: req.isAuthenticated() });
 });
 
+mainRoutes.get(`/profile`, (req, res) => {
+  res.render("profile", { isLoggedIn: req.isAuthenticated() });
+});
+
 mainRoutes.get(`/register`, unauthenticationCheck, (req, res) => {
   res.render("register", { isLoggedIn: req.isAuthenticated() });
 });
