@@ -9,23 +9,23 @@ import {
 const mainRoutes = express.Router();
 
 mainRoutes.get(`/`, (req, res) => {
-  res.render("homepage", { isLoggedIn: false });
+  res.render("homepage", { isLoggedIn: req.isAuthenticated() });
 });
 
 mainRoutes.get(`/login`, unauthenticationCheck, (req, res) => {
-  res.render("login", { isLoggedIn: false });
+  res.render("login", { isLoggedIn: req.isAuthenticated() });
 });
 
 mainRoutes.get(`/register`, unauthenticationCheck, (req, res) => {
-  res.render("register", { isLoggedIn: false });
+  res.render("register", { isLoggedIn: req.isAuthenticated() });
 });
 
 mainRoutes.get(`/aboutus`, authenticationCheck, (req, res) => {
-  res.render("about", { isLoggedIn: true });
+  res.render("about", { isLoggedIn: req.isAuthenticated() });
 });
 
 mainRoutes.get(`/secrets`, authenticationCheck, (req, res) => {
-  res.render(`secrets`, { isLoggedIn: true });
+  res.render(`secrets`, { isLoggedIn: req.isAuthenticated() });
 });
 
 mainRoutes.post(`/login`, (req, res) => {

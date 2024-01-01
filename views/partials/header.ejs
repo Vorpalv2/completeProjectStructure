@@ -10,18 +10,20 @@
     <header style="background-color: #333; color: #fff; padding: 20px 0; text-align: center;">
         <h1 style="margin: 0;">Check out the Folder Structure on Github</h1>
         <nav>
-            <ul style="list-style: none;">
-               
+            <ul style="list-style: none; ">
+               <%= console.log(isLoggedIn) %>
                      <li style="display: inline; margin-right: 20px;">
                       <a href="/" style="color: #fff; text-decoration: none;">Home</a>
                      </li>
-                     <li style="display: inline; margin-right: 20px;">
-                      <a href="/register" style="color: #fff; text-decoration: none;">Register</a>
-                     </li>
-
-                     <li style="display: inline; margin-right: 20px;"> 
-                     <a href="/login" style="color: #fff; text-decoration: none;">Login</a> 
-                     </li>  <li style="display: inline; margin-right: 20px;">
+                     <% if (!isLoggedIn) { %>
+                        <li style="display: inline; margin-right: 20px;">
+                          <a href="/register" style="color: #fff; text-decoration: none;">Register</a>
+                        </li>
+                      
+                        <li style="display: inline; margin-right: 20px;"> 
+                          <a href="/login" style="color: #fff; text-decoration: none;">Login</a> 
+                        </li>
+                      <% } %>
                      <a href="/secrets" style="color: #fff; text-decoration: none;">Secrets</a>
                      </li> %>
                      <li style="display: inline; margin-right: 20px;">
