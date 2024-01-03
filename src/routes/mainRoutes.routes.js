@@ -20,6 +20,10 @@ mainRoutes.get(`/profile`, (req, res) => {
   res.render("profile", { isLoggedIn: req.isAuthenticated() });
 });
 
+mainRoutes.get(`/auth/google`, passport.authenticate("google"), (req, res) => {
+  res.send("hello");
+});
+
 mainRoutes.get(`/register`, unauthenticationCheck, (req, res) => {
   res.render("register", { isLoggedIn: req.isAuthenticated() });
 });

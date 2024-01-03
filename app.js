@@ -4,6 +4,7 @@ import { mainRoutes } from "./src/routes/mainRoutes.routes.js";
 import passport from "passport";
 import session from "express-session";
 import users from "./src/model/users.model.js";
+import GoogleStratergy from "passport-google-oidc";
 const rootDirectory = process.cwd();
 
 const app = express();
